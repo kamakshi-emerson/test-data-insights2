@@ -1,0 +1,17 @@
+{
+  "name": "Functional - /ask Endpoint with Empty Question",
+  "description": "Checks that the /ask endpoint returns a validation error when the question is empty.",
+  "test_type": "functional",
+  "input": "POST /ask with JSON body: {\"question\": \"   \"}",
+  "output": "JSON response with success=false, error_type='validation_error', and appropriate error_message.",
+  "success_criteria": [
+    "HTTP status code is 422",
+    "response.success is False",
+    "response.error_type is 'validation_error'",
+    "response.error_message contains 'Question cannot be empty'"
+  ],
+  "error_scenarios": [
+    "Malformed JSON",
+    "Unexpected server error"
+  ]
+}

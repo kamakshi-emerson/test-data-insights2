@@ -1,0 +1,18 @@
+{
+  "name": "Integration - Retrieval and LLM Workflow",
+  "description": "Tests the integration between RetrievalClient, LLMClient, and DomainLogic by simulating a full question-answer workflow.",
+  "test_type": "integration",
+  "input": "A valid question string passed to ApplicationOrchestrator.process_question() with all dependencies mocked to return expected values.",
+  "output": "A simplified, grounded answer string.",
+  "success_criteria": [
+    "RetrievalClient.retrieve_chunks is called and returns non-empty list",
+    "LLMClient.generate_answer is called with correct prompt/context",
+    "DomainLogic.validate_grounding returns True",
+    "DomainLogic.simplify_language returns a non-empty string"
+  ],
+  "error_scenarios": [
+    "RetrievalClient returns empty list",
+    "LLMClient.generate_answer raises exception",
+    "DomainLogic.validate_grounding returns False"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Integration - Error Handling for No Data Found",
+  "description": "Ensures that when no relevant data is found, the orchestrator returns the fallback response and logs the event.",
+  "test_type": "integration",
+  "input": "A valid question string where RetrievalClient.retrieve_chunks returns an empty list.",
+  "output": "Fallback response string from Config.get_fallback_response().",
+  "success_criteria": [
+    "ErrorHandler.handle_error is called with 'NO_DATA_FOUND'",
+    "Logger.log_event is called with appropriate error context",
+    "Returned answer matches fallback response"
+  ],
+  "error_scenarios": [
+    "Logger fails to log event",
+    "Config.get_fallback_response raises exception"
+  ]
+}

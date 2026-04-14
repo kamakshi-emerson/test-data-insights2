@@ -1,0 +1,16 @@
+{
+  "name": "Functional - Malformed JSON in /ask Endpoint",
+  "description": "Checks that the /ask endpoint returns a 400 error with appropriate message when given malformed JSON.",
+  "test_type": "functional",
+  "input": "POST /ask with invalid JSON body (e.g., missing quotes or brackets).",
+  "output": "JSON response with success=false, error_type='malformed_json', and appropriate error_message.",
+  "success_criteria": [
+    "HTTP status code is 400",
+    "response.success is False",
+    "response.error_type is 'malformed_json'",
+    "response.error_message contains 'Malformed JSON'"
+  ],
+  "error_scenarios": [
+    "Unexpected server error"
+  ]
+}

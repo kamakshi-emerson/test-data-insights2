@@ -1,0 +1,14 @@
+{
+  "name": "Integration - OpenAI and Azure Search Client Creation",
+  "description": "Verifies that Config.get_openai_client() and Config.get_search_client() create clients when environment variables are set, and raise errors otherwise.",
+  "test_type": "integration",
+  "input": "Set all required environment variables and call both methods; then unset one and call again.",
+  "output": "Client objects are returned when variables are set; RuntimeError is raised when missing.",
+  "success_criteria": [
+    "Client object is returned when variables are present",
+    "RuntimeError is raised with appropriate message when variables are missing"
+  ],
+  "error_scenarios": [
+    "Unexpected exception type is raised"
+  ]
+}

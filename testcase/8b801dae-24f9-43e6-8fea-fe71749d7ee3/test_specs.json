@@ -1,0 +1,14 @@
+{
+  "name": "Integration - Configuration Validation Failure",
+  "description": "Tests that missing required environment variables cause configuration validation to fail with a clear error.",
+  "test_type": "integration",
+  "input": "Unset one or more required environment variables and call Config.validate() or Config.get_all().",
+  "output": "ConfigError is raised with a message listing missing variables.",
+  "success_criteria": [
+    "ConfigError is raised",
+    "Error message contains names of missing variables"
+  ],
+  "error_scenarios": [
+    "Unexpected exception type is raised"
+  ]
+}

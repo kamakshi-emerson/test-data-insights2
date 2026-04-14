@@ -1,0 +1,3 @@
+Test Code Sanitization Warnings:
+  - Found 2 HTTP calls that need mocking
+  - Auto-wrapped HTTP calls with mocks

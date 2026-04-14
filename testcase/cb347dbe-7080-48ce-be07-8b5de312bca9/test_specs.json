@@ -1,0 +1,17 @@
+{
+  "name": "Functional - Successful /ask Endpoint with Valid Question",
+  "description": "Validates that the /ask endpoint returns a successful response and an answer when provided with a valid question.",
+  "test_type": "functional",
+  "input": "POST /ask with JSON body: {\"question\": \"What are the key facts about Mars?\"}",
+  "output": "JSON response with success=true and a non-empty answer field.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "response.success is True",
+    "response.answer is not None",
+    "response.error_type is None"
+  ],
+  "error_scenarios": [
+    "Azure/OpenAI service unavailable",
+    "Missing required environment variables"
+  ]
+}

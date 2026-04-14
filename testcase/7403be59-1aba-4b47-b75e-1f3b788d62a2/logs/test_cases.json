@@ -1,0 +1,11 @@
+[
+  {
+    "id": "test_1",
+    "name": "Functional - Health Check Endpoint",
+    "description": "Test: Functional - Health Check Endpoint",
+    "type": "functional",
+    "status": "skipped",
+    "duration": 0.0,
+    "error": null
+  }
+]

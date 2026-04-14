@@ -1,0 +1,60 @@
+=== PYTEST EXECUTION LOG ===
+
+Exit Code: 1
+
+STDOUT:
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.0.3, pluggy-1.6.0 -- /tmp/test_venv_exec_v6gih3ga/venv/bin/python
+cachedir: .pytest_cache
+metadata: {'Python': '3.11.15', 'Platform': 'Linux-5.15.0-1102-azure-x86_64-with-glibc2.41', 'Packages': {'pytest': '9.0.3', 'pluggy': '1.6.0'}, 'Plugins': {'asyncio': '1.3.0', 'anyio': '4.13.0', 'json-report': '1.5.0', 'metadata': '3.1.1'}}
+rootdir: /tmp/test_venv_exec_v6gih3ga
+configfile: pytest.ini
+plugins: asyncio-1.3.0, anyio-4.13.0, json-report-1.5.0, metadata-3.1.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 1 item
+
+test_agent.py::test_functional_malformed_json_in_ask_endpoint ERROR      [100%]
+
+==================================== ERRORS ====================================
+_______ ERROR at setup of test_functional_malformed_json_in_ask_endpoint _______
+
+    @pytest.fixture
+    def client():
+        """
+        Fixture to provide a test client for the FastAPI/Flask app.
+        Assumes the app is imported as 'app' from 'main.py'.
+        """
+        try:
+            from fastapi.testclient import TestClient
+>           from main import app
+E           ModuleNotFoundError: No module named 'main'
+
+test_agent.py:14: ModuleNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+    @pytest.fixture
+    def client():
+        """
+        Fixture to provide a test client for the FastAPI/Flask app.
+        Assumes the app is imported as 'app' from 'main.py'.
+        """
+        try:
+            from fastapi.testclient import TestClient
+            from main import app
+            return TestClient(app)
+        except ImportError:
+            # Fallback for Flask
+            from flask import Flask
+>           from main import app
+E           ModuleNotFoundError: No module named 'main'
+
+test_agent.py:19: ModuleNotFoundError
+--------------------------------- JSON report ----------------------------------
+report saved to: /tmp/test_venv_exec_v6gih3ga/pytest_report.json
+=========================== short test summary info ============================
+ERROR test_agent.py::test_functional_malformed_json_in_ask_endpoint - ModuleN...
+=============================== 1 error in 0.56s ===============================
+
+
+STDERR:

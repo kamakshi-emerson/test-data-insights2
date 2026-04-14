@@ -1,0 +1,11 @@
+[
+  {
+    "id": "test_1",
+    "name": "Integration - Error Handling for No Data Found",
+    "description": "Test: Integration - Error Handling for No Data Found",
+    "type": "integration",
+    "status": "passed",
+    "duration": 0.0,
+    "error": null
+  }
+]
